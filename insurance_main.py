@@ -75,7 +75,7 @@ def main():
 
     # ✅ SAVE MODEL (THIS WAS MISSING)
     dump(model, "rf_insurance_model.joblib")
-    print("✅ Model saved as rf_insurance_model.joblib")
+    print(" Model saved as rf_insurance_model.joblib")
 
 
 if __name__ == "__main__":
