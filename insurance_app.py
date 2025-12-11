@@ -4,13 +4,10 @@ import pandas as pd
 import os
 from joblib import load
 
-st.set_page_config(page_title="Insurance Response Prediction")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "rf_insurance_model.joblib")
 
-# ---------- Load model safely ----------
-@st.cache_resource
-def load_model():
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(BASE_DIR, "rf_insurance_model.joblib")
+model = load(model_path)
 
     if not os.path.exists(model_path):
         raise FileNotFoundError(
@@ -108,3 +105,4 @@ if st.button("Predict Response"):
             f" Customer is **NOT LIKELY INTERESTED** in the policy.\n\n"
             f"**Probability: {probability:.2%}**"
         )
+
